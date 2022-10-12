@@ -20,6 +20,12 @@ export async function getPosts(): Promise<PostsResponse> {
   return response.json();
 }
 
+export async function getLimitedPosts(limit: number, skip: number): Promise<PostsResponse> {
+  const response = await fetch(`https://dummyjson.com/posts?limit=${limit}&skip=${skip}`);
+
+  return response.json();
+}
+
 export async function getPost(postId: Post['id']): Promise<Post> {
   const response = await fetch(`https://dummyjson.com/posts/${postId}`);
 
